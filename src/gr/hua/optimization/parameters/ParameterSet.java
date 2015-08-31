@@ -15,18 +15,15 @@
  */
 package gr.hua.optimization.parameters;
 
-import gr.hua.utils.range.Range;
-
 /**
  *
  * @author Nikolaos Zormpas <nickzorb@gmail.com>
  * @param <T>
+ * @param <E>
  */
-public interface Parameter<E, K, T> extends Range<T> {
-
-    E id();
+public interface ParameterSet<T, E> {
     
-    K getValue(T index);
-
-    T defaultValue();
+    T[] parameters();
+    
+    ParameterSetIndex<E> index();
 }

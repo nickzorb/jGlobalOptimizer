@@ -13,20 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gr.hua.optimization.parameters;
-
-import gr.hua.utils.range.Range;
+package gr.hua.optimization.global.basics;
 
 /**
  *
  * @author Nikolaos Zormpas <nickzorb@gmail.com>
  * @param <T>
+ * @param <E>
  */
-public interface Parameter<E, K, T> extends Range<T> {
-
-    E id();
+public interface Evaluator<T, E> {
     
-    K getValue(T index);
-
-    T defaultValue();
+    E accept(T t);
 }

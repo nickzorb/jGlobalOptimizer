@@ -15,18 +15,30 @@
  */
 package gr.hua.optimization.parameters;
 
-import gr.hua.utils.range.Range;
+import gr.hua.utils.range.RangeIterator;
+import java.util.Map;
 
 /**
  *
  * @author Nikolaos Zormpas <nickzorb@gmail.com>
  * @param <T>
  */
-public interface Parameter<E, K, T> extends Range<T> {
-
-    E id();
+public interface ParameterSetIndex<T> {
     
-    K getValue(T index);
-
-    T defaultValue();
+    ParameterSet parameterSet();
+    
+    Map<Object, RangeIterator<T>> iterators();
+    
+    Map<Object, T> values();
+    
+    void randomize();
+    
+    void setToDefaults();
+    
+    boolean isValid();
+    
+    @Override
+    boolean equals(Object other);
+    
+    ParameterSetIndex<T> clone();
 }
